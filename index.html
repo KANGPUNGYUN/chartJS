@@ -463,9 +463,23 @@
               backgroundColor: "rgba(255, 99, 132, 0.2)",
             },
             {
+              type: "bar",
+              label: "매출원가",
+              data: [5, 15, 10, 30],
+              borderColor: "rgba(54, 162, 235)",
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+            },
+            {
               type: "line",
               label: "당기순이익",
               data: [40, 45, 35, 50],
+              fill: false,
+              borderColor: "rgb(255, 99, 132)",
+            },
+            {
+              type: "line",
+              label: "영업이익",
+              data: [30, 25, 40, 45],
               fill: false,
               borderColor: "rgb(54, 162, 235)",
             },
@@ -475,6 +489,10 @@
           scales: {
             y: {
               beginAtZero: true,
+              title: {
+                display: true,
+                text: "(단위: 억원)",
+              },
             },
           },
         },
