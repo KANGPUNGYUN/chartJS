@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart.JS 라이브러리 공부하기</title>
+    <style>
+      body {
+        padding: 40px;
+      }
+      .index-container {
+        width: 400px;
+        border: 1px solid rgb(234, 235, 239);
+        border-radius: 4px;
+        margin-bottom: 40px;
+      }
+      .index-container > h2 {
+        margin-left: 20px;
+      }
+      .chart-title {
+        margin-top: 100px;
+      }
+      .chart {
+        width: 800px;
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="index-container">
+      <h2>INDEX</h2>
+      <ol>
+        <li><a href="/#vertical-bar-chart">막대 그래프</a></li>
+        <li><a href="/#horizontal-bar-chart">가로 막대 그래프</a></li>
+        <li><a href="/#line-chart">선 그래프</a></li>
+        <li><a href="/#vertical-line-chart">수직선 그래프</a></li>
+        <li><a href="/#pie-chart">파이 그래프</a></li>
+        <li><a href="/#doughnut-chart">도넛 그래프</a></li>
+        <li><a href="/#bubble-chart">버블 그래프</a></li>
+        <li><a href="/#area-chart">영역 그래프</a></li>
+        <li><a href="/#scatter-chart">분산형 그래프</a></li>
+        <li><a href="/#radar-chart">레이더 그래프</a></li>
+        <li><a href="/#mixed-chart">혼합 그래프</a></li>
+      </ol>
+    </div>
+    <h2 id="vertical-bar-chart" class="chart-title">막대 그래프</h2>
+    <div class="chart">
+      <canvas id="verticalBarChart"></canvas>
+    </div>
+
+    <h2 id="horizontal-bar-chart" class="chart-title">가로 막대 그래프</h2>
+    <div class="chart">
+      <canvas id="horizontalBarChart"></canvas>
+    </div>
+
+    <h2 id="line-chart" class="chart-title">선 그래프</h2>
+    <div class="chart">
+      <canvas id="lineChart"></canvas>
+    </div>
+
+    <h2 id="vertical-line-chart" class="chart-title">수직선 그래프</h2>
+    <div class="chart">
+      <canvas id="verticalLineChart"></canvas>
+    </div>
+
+    <h2 id="pie-chart" class="chart-title">파이 그래프</h2>
+    <div class="chart">
+      <canvas id="pieChart"></canvas>
+    </div>
+
+    <h2 id="doughnut-chart" class="chart-title">도넛 그래프</h2>
+    <div class="chart">
+      <canvas id="doughnutChart"></canvas>
+    </div>
+
+    <h2 id="bubble-chart" class="chart-title">버블 그래프</h2>
+    <div class="chart">
+      <canvas id="bubbleChart"></canvas>
+    </div>
+
+    <h2 id="area-chart" class="chart-title">영역 그래프</h2>
+    <div class="chart">
+      <canvas id="areaChart"></canvas>
+    </div>
+
+    <h2 id="scatter-chart" class="chart-title">분산형 그래프</h2>
+    <div class="chart">
+      <canvas id="scatterChart"></canvas>
+    </div>
+
+    <h2 id="radar-chart" class="chart-title">레이더 그래프</h2>
+    <div class="chart">
+      <canvas id="radarChart"></canvas>
+    </div>
+
+    <h2 id="mixed-chart" class="chart-title">혼합 그래프</h2>
+    <div class="chart">
+      <canvas id="mixedChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const ctx01 = document.getElementById("verticalBarChart");
+
+      new Chart(ctx01, {
+        type: "bar",
+        data: {
+          labels: ["4월", "5월", "6월", "7월", "8월", "9월"],
+          datasets: [
+            {
+              label: "예상 회의 수",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      const ctx02 = document.getElementById("horizontalBarChart");
+
+      new Chart(ctx02, {
+        type: "bar",
+        data: {
+          labels: ["4월", "5월", "6월", "7월", "8월", "9월"],
+          datasets: [
+            {
+              label: "예상 회의 수",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          indexAxis: "y",
+        },
+      });
+
+      const ctx03 = document.getElementById("lineChart");
+
+      new Chart(ctx03, {
+        type: "line",
+        data: {
+          labels: ["4월", "5월", "6월", "7월", "8월", "9월"],
+          datasets: [
+            {
+              label: "예상 회의 수",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+      });
+
+      const ctx04 = document.getElementById("verticalLineChart");
+
+      new Chart(ctx04, {
+        type: "line",
+        data: {
+          labels: ["4월", "5월", "6월", "7월", "8월", "9월"],
+          datasets: [
+            {
+              label: "예상 회의 수",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          indexAxis: "y",
+          scales: {
+            x: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      const ctx05 = document.getElementById("pieChart");
+
+      new Chart(ctx05, {
+        type: "pie",
+        data: {
+          labels: ["빨강빨강", "파랑파랑", "노랑노랑"],
+          datasets: [
+            {
+              label: "파이 그래프",
+              data: [300, 50, 100],
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(54, 162, 235)",
+                "rgb(255, 205, 86)",
+              ],
+              hoverOffset: 4,
+            },
+          ],
+        },
+        options: {
+          indexAxis: "y",
+          scales: {
+            x: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      const ctx06 = document.getElementById("doughnutChart");
+
+      new Chart(ctx06, {
+        type: "doughnut",
+        data: {
+          labels: ["빨강빨강", "파랑파랑", "노랑노랑"],
+          datasets: [
+            {
+              label: "도넛 그래프",
+              data: [40, 50, 10],
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(54, 162, 235)",
+                "rgb(255, 205, 86)",
+              ],
+              hoverOffset: 4,
+            },
+          ],
+        },
+        options: {
+          indexAxis: "y",
+          scales: {
+            x: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      const ctx07 = document.getElementById("bubbleChart");
+
+      new Chart(ctx07, {
+        type: "bubble",
+        data: {
+          labels: ["빨강빨강", "파랑파랑", "노랑노랑"],
+          datasets: [
+            {
+              label: "버블 그래프",
+              data: [
+                {
+                  x: 20,
+                  y: 30,
+                  r: 15,
+                },
+                {
+                  x: 70,
+                  y: 50,
+                  r: 30,
+                },
+                {
+                  x: 40,
+                  y: 10,
+                  r: 10,
+                },
+              ],
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(54, 162, 235)",
+                "rgb(255, 205, 86)",
+              ],
+            },
+          ],
+        },
+      });
+
+      const ctx08 = document.getElementById("areaChart");
+
+      new Chart(ctx08, {
+        type: "line",
+        data: {
+          labels: ["4월", "5월", "6월", "7월", "8월"],
+          datasets: [
+            {
+              label: "페이지 뷰 수",
+              data: [5000, 7500, 8000, 6000, 9000],
+              backgroundColor: "rgba(75, 192, 192, 0.5)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 2,
+              fill: "start",
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: "(단위: 천)",
+              },
+            },
+          },
+          layout: {
+            padding: {
+              left: 20,
+              right: 20,
+              top: 20,
+              bottom: 20,
+            },
+          },
+        },
+      });
+
+      const ctx09 = document.getElementById("scatterChart");
+
+      new Chart(ctx09, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "분산형 그래프",
+              data: [
+                {
+                  x: -10,
+                  y: 0,
+                },
+                {
+                  x: 0,
+                  y: 10,
+                },
+                {
+                  x: 10,
+                  y: 5,
+                },
+                {
+                  x: 0.5,
+                  y: 5.5,
+                },
+                {
+                  x: -7,
+                  y: 3,
+                },
+                {
+                  x: 2,
+                  y: 7,
+                },
+              ],
+              backgroundColor: "rgb(255, 99, 132)",
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              type: "linear",
+              position: "bottom",
+            },
+          },
+        },
+      });
+
+      const ctx10 = document.getElementById("radarChart");
+
+      new Chart(ctx10, {
+        type: "radar",
+        data: {
+          labels: ["국어", "수학", "영어", "한국사", "화학1", "지구과학1"],
+          datasets: [
+            {
+              label: "학생 1",
+              data: [95, 89, 90, 81, 100, 86],
+              fill: true,
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgb(255, 99, 132)",
+              pointBackgroundColor: "rgb(255, 99, 132)",
+              pointBorderColor: "#fff",
+              pointHoverBackgroundColor: "#fff",
+              pointHoverBorderColor: "rgb(255, 99, 132)",
+            },
+            {
+              label: "학생 2",
+              data: [98, 100, 80, 90, 96, 97],
+              fill: true,
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderColor: "rgb(54, 162, 235)",
+              pointBackgroundColor: "rgb(54, 162, 235)",
+              pointBorderColor: "#fff",
+              pointHoverBackgroundColor: "#fff",
+              pointHoverBorderColor: "rgb(54, 162, 235)",
+            },
+          ],
+        },
+        options: {
+          elements: {
+            line: {
+              borderWidth: 3,
+            },
+          },
+        },
+      });
+
+      const ctx11 = document.getElementById("mixedChart");
+
+      new Chart(ctx11, {
+        type: "scatter",
+        data: {
+          labels: ["4월", "5월", "6월", "7월"],
+          datasets: [
+            {
+              type: "bar",
+              label: "매출액",
+              data: [10, 20, 30, 40],
+              borderColor: "rgb(255, 99, 132)",
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+            },
+            {
+              type: "line",
+              label: "당기순이익",
+              data: [40, 45, 35, 50],
+              fill: false,
+              borderColor: "rgb(54, 162, 235)",
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
